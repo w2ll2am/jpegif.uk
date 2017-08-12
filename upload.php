@@ -1,4 +1,8 @@
 <?php
+if(isset($_COOKIE['IDCookie'])){
+			  $cookie = $_COOKIE['IDCookie'];
+			  
+		  }
 $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 $id = '';
 $max = strlen($characters) -1;
@@ -41,7 +45,7 @@ if ($uploadOk == 0) {
 		$now = date('Y-m-d H:i:s');
 		$description = $_POST["description"];
 		$title = $_POST["title"];
-		$sql="INSERT INTO threads (threadsID, threadsDate, threadsDescription, threadsUserID, threadsTitle, threadsReplies) VALUES ('$id', '$now', '$description', 'abababab','$title','0')";
+		$sql="INSERT INTO threads (threadsID, threadsDate, threadsDescription, threadsUserID, threadsTitle, threadsReplies) VALUES ('$id', '$now', '$description', '$cookie','$title','0')";
 		$mysqli = new MySQLi("localhost","root","root","jpegif");
 		if ($result = $mysqli->query($sql) === TRUE) {
 			echo "<br /> New record";

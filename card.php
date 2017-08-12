@@ -15,7 +15,7 @@
 			echo("Did not connect");
 		}
 		 ?> 
-      <div class="thumbnail"> <div ><img style="height:200px" src="threads/<?php echo($threadID)?>/1.jpg" onerror="this.src='threads/<?php echo($threadID)?>/1.png';" width="400px" alt="Thumbnail Image 1" class="img-responsive" > </div>
+      <div class="thumbnail"> <div style="height: 400px;"><img src="threads/<?php echo($threadID)?>/1.jpg" onerror="this.src='threads/<?php echo($threadID)?>/1.png';" alt="Thumbnail Image 1" class="img-responsive" style="max-height: auto; width: 100%; padding: 3px;"> </div><hr>
         <div class="caption">
           <h3><?php echo($threadTitle) ?></h3>
           <p><?php echo($threadDescription) ?></p>

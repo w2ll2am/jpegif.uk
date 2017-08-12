@@ -31,7 +31,7 @@
 	
 	echo('<center>');
 	echo('<div style>');
-	echo('<img src="threads/'.$threadID.'/1.jpg" '.$errorScript.' alt="Thumbnail Image 1" class="img-responsive img-expandable" > ');
+	echo('<img src="threads/'.$threadID.'/1.jpg" '.$errorScript.' alt="Thumbnail Image 1" class="img-responsive img-expandable" style="border-style: solid; border-width: 2px; padding: 2px"> ');
 	echo('</div>');
 	echo('<h3>'.$threadDescription);
 	echo('<h4> Uploaded on: '.$threadDate);
@@ -42,10 +42,12 @@
 		<center>
 		<h2 class="newThreadTitle" style="text-align: left; font-family: Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial; ">New Comment</h2>
 		</center>
-		<textarea form="newComment" placeholder="Comment Text" name="comment" style="resize: vertical; width:30%"></textarea>
-		<form style=" padding-top: 5%" action="/upload.php" target="_blank" method="post" id="newThread" enctype="multipart/form-data">		
+		<form style=" padding-top: 5%" action="/commentUpload.php" target="_blank" method="post" id="newComment" enctype="multipart/form-data">
+		<input type="text" name="content" placeholder="Comment" style="width: 50%"/> <br /> <br />
 		<input class="loginButton" type="submit" value ="Submit" title="Submit" name="submit"/>
 		<br /> <input type="hidden" name="isNewPost" value="true"	/>
+		<input type="hidden" name="thread" value="<?php echo($threadID); ?>" />
+		
 
 		</form>
 	
