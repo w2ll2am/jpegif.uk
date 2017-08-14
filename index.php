@@ -100,16 +100,7 @@
 <hr>
 
 
-<footer class="text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <p>Copyright © MyWebsite. All rights reserved.</p>
-      </div>
-    </div>
-  </div>
-  
-</footer>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script type-"text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.qtip.min.js"></script>

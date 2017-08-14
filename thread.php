@@ -25,13 +25,18 @@
 <body>
 <?php include("navbar.php"); ?>
 <?php 
-	
-	$errorScript = 'onerror="this.src=\'threads/'.$threadID .'/1.png\'"';
+	if (@getimagesize("http://localhost/threads/$threadID/1.jpg")) 
+	{
+		$filetype = "jpg";
+	} elseif (@getimagesize("http://localhost/threads/{$threadID}/1.png"))
+	{
+		$filetype = "png";
+	}
 	echo('<h1 style="text-align: center">'.$threadTitle.'</h1>');
 	
 	echo('<center>');
 	echo('<div style>');
-	echo('<img src="threads/'.$threadID.'/1.jpg" '.$errorScript.' alt="Thumbnail Image 1" class="img-responsive img-expandable" style="border-style: solid; border-width: 2px; padding: 2px"> ');
+	echo('<img src="threads/'.$threadID.'/1.'.$filetype.'" alt="Thumbnail Image 1" class="img-responsive img-expandable" style="border-style: solid; border-width: 2px; padding: 2px"> ');
 	echo('</div>');
 	echo('<h3>'.$threadDescription);
 	echo('<h4> Uploaded on: '.$threadDate);

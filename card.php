@@ -14,8 +14,15 @@
 	} else {
 			echo("Did not connect");
 		}
+		 if (@getimagesize("http://localhost/threads/$threadID/1.jpg")) 
+		 {
+			 $filetype = "jpg";
+		 } elseif (@getimagesize("http://localhost/threads/{$threadID}/1.png"))
+		 {
+			 $filetype = "png";
+		 }
 		 ?> 
-      <div class="thumbnail"> <div style="height: 400px;"><img src="threads/<?php echo($threadID)?>/1.jpg" onerror="this.src='threads/<?php echo($threadID)?>/1.png';" alt="Thumbnail Image 1" class="img-responsive" style="max-height: auto; width: 100%; padding: 3px;"> </div><hr>
+      <div class="thumbnail"> <div style="height: 400px;"><img src="threads/<?php echo($threadID)?>/1.<?php echo($filetype); ?>"  alt="Thumbnail Image 1" class="img-responsive" style="max-height: auto; width: 100%; padding: 3px;"> </div><hr>
         <div class="caption">
           <h3><?php echo($threadTitle) ?></h3>
           <p><?php echo($threadDescription) ?></p>
