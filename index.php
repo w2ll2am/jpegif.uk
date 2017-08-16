@@ -54,11 +54,16 @@
 
 
 <center>
-	<button onClick="togglePost()" class="loginButton">New Post</button>
+	<?php if(isset($cookie)) 
+		{
+			echo("<button onClick='togglePost()' class='loginButton'>New Post</button>");
+		} 
+		else 
+		{
+			echo("<p>Login to make a post</p>");
+		}
+	?>
 </center>
-<div id="newPost">
-
-</div>
 <hr>
 <ul style="align: center;">
 	<li>Sort By:</li>

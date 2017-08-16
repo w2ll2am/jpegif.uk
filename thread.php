@@ -43,21 +43,33 @@
 	echo('</center>');
 	?>
 	
-	<div id="newComment" style="width: 80%; padding-left: 20px" >
+	</br>
+	</br>
+	<?php if(isset($cookie)) 
+		{
+			echo("
+		<div id='newComment' style='width: 80%; padding-left: 20px' >
 		<center>
-		<h2 class="newThreadTitle" style="text-align: left; font-family: Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial; ">New Comment</h2>
+		<h2 class='newThreadTitle' style='text-align: left; font-family: Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial;' >New Comment</h2>
 		</center>
-		<form style=" padding-top: 5%" action="/commentUpload.php" target="_blank" method="post" id="newComment" enctype="multipart/form-data">
-		<input type="text" name="content" placeholder="Comment" style="width: 50%"/> <br /> <br />
-		<input class="loginButton" type="submit" value ="Submit" title="Submit" name="submit"/>
-		<br /> <input type="hidden" name="isNewPost" value="true"	/>
-		<input type="hidden" name="thread" value="<?php echo($threadID); ?>" />
+		<form style= 'padding-top: 5%' action='/commentUpload.php' target='_blank' method='post' id='newComment' enctype='multipart/form-data'>
+		<input type='text' name='content' placeholder='Comment' style='width: 50%'/> <br /> <br />
+		<input class='loginButton' type='submit' value ='Submit' title='Submit' name='submit'/>
+		<br /> <input type='hidden' name='isNewPost' value='true'	/>
+		<input type='hidden' name='thread' value='<?php echo($threadID); ?>' />
 		
 
 		</form>
 	
 		
 	</div>
+	");
+		} 
+		else 
+		{
+			echo("<center><p>Login to make a comment</p></center>");
+		}
+	?>
 	
 </body>
 <footer>
