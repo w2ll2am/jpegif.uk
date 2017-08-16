@@ -27,7 +27,8 @@
           <h3><?php echo($threadTitle) ?></h3>
           <p><?php echo($threadDescription) ?></p>
           <p>
-         	<div id="ViewComments" class="viewcomments"><a href="#">View Comments (<?php echo($replies) ?>)</a></div>
+         	<div id="ViewComments" class="viewcomments">
+         	<span style="color: #337AC7; cursor: pointer;">View Comments (<?php echo($replies) ?>)</span></div>
          	<div id="ViewThread" class="viewthread"><a target="_blank" href="thread.php?t=<?php echo($threadID) ?>">View Thread</a></div>
          	<div id="Date" class = "date"><?php echo($threadDate)?></div>
           </p>
