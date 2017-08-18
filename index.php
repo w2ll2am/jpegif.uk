@@ -32,7 +32,7 @@
 <center><h1>Welcome!</h1>
 <p>Welcome to our image sharing site. Please make all ze threads</p></center>
 <?php 
-	$query = "SELECT threadsID FROM threads ORDER BY threadsDate DESC LIMIT 6";
+	$query = "SELECT threadsID FROM threads ORDER BY threadsDate DESC LIMIT 9";
 	$cardCount = 1;
 	$varname = 'thread';
 	if ($result = $mysqli->query($query)){
@@ -75,20 +75,24 @@
   <div class="row text-center">
     
     
-     <?php include('card.php'); ?>
-    
-    
-    
-     <?php include('card.php'); ?>
-    
-    
-    
-    
-    
+    <?php include('card.php'); ?>
+
+    <?php include('card.php'); ?>
+
     <?php include('card.php'); ?>
     
    
     
+  </div>
+  
+  <div class="row text-center hidden-xs">
+   
+    <?php include('card.php'); ?>
+    
+    <?php include('card.php'); ?>
+    
+    <?php include('card.php'); ?>
+   
   </div>
   
   <div class="row text-center hidden-xs">
@@ -121,7 +125,9 @@
 				text: "<iframe src='testthread.html'>"
 			},
 			style: {
-				classes: 'qtip-bootstrap'
+				
+				classes: 'qtip-bootstrap',
+				tip: { size: { x: 30, y: 10}}
 			},
 			show: {
 				event: 'click'

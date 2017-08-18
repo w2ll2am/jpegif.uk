@@ -1,18 +1,25 @@
-     <div class="col-sm-4">
+<div class="col-sm-4">
     <?php 
 		 $threadID = ${"thread" . $cardCount};
 		 $cardCount += 1;
-		 $query = "SELECT threadsID, threadsDate, threadsDescription, threadsUserID, threadsTitle, threadsReplies FROM threads WHERE threadsID = '$threadID'";
+		 $query = "SELECT threadsID, threadsDate, threadsDescription, threadsUserID, threadsTitle FROM threads WHERE threadsID = '$threadID'";
 		if ($result = $mysqli->query($query)) {
 			while($row = $result->fetch_array()) {
 				$threadDate = $row['threadsDate'];
 				$threadDescription = $row['threadsDescription'];
 				$threadUser = $row['threadsUserID'];
 				$threadTitle = $row['threadsTitle'];
-				$replies = $row['threadsReplies'];
+				
 		}
+			$result->close();
 	} else {
 			echo("Did not connect");
+		}
+		$query = "SELECT commentsID FROM comments WHERE commentsThreadID = '$threadID'";
+		if ($result = $mysqli->query($query)) {
+			$row_cnt = $result->num_rows;
+			$replies = $row_cnt;
+			$result->close();
 		}
 		 if (@getimagesize("http://localhost/threads/$threadID/1.jpg")) 
 		 {
