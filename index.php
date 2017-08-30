@@ -63,6 +63,7 @@
 			echo("<p>Login to make a post</p>");
 		}
 	?>
+	<div id='newPost'></div>
 </center>
 <hr>
 <ul style="align: center;">
@@ -126,8 +127,7 @@
 			},
 			style: {
 				
-				classes: 'qtip-bootstrap',
-				tip: { size: { x: 30, y: 10}}
+				classes: 'qtip-bootstrap'
 			},
 			show: {
 				event: 'click'
