@@ -56,7 +56,7 @@
 <center>
 	<?php if(isset($cookie)) 
 		{
-			echo("<button onClick='togglePost()' class='loginButton'>New Post</button>");
+			echo("<button onClick='togglePost()' class='loginButton'>New Thread</button>");
 		} 
 		else 
 		{
