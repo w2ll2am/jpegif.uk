@@ -38,7 +38,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES ('1Z036iHT','X1fTKFKR','aADM7iYG','2017-08-12 23:52:35','Thats cool'),('oXTgsipQ','X1fTKFKR','aADM7iYG','2017-08-12 23:50:39','test');
+INSERT INTO `comments` VALUES ('1Z036iHT','X1fTKFKR','aADM7iYG','2017-08-12 23:52:35','Thats cool'),('GzfStOId','X1fTKFKR','aADM7iYG','2017-08-31 20:50:00','i like this, haha!'),('jpxrCEIK','X1fTKFKR','aADM7iYG','2017-08-31 20:46:40','test'),('oXTgsipQ','X1fTKFKR','aADM7iYG','2017-08-12 23:50:39','test'),('xwLRIeUv','X1fTKFKR','aADM7iYG','2017-08-31 20:51:17','this is weird!');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,4 +106,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-30 22:10:03
+-- Dump completed on 2017-08-31 21:53:59
