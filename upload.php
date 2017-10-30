@@ -1,4 +1,5 @@
 <?php
+include("header.php");
 if(isset($_COOKIE['IDCookie'])){
 			  $cookie = $_COOKIE['IDCookie'];
 			  
@@ -41,14 +42,14 @@ if ($uploadOk == 0) {
 	$temp = explode(".", $_FILES["fileToUpload"]["name"]);
 	$newfilename = "1" . '.' . end($temp);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . $newfilename)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded at /threads/$id";
+        echo "Success! The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded at /threads/$id. You will now be redirected to this page";
 		$now = date('Y-m-d H:i:s');
 		$description = $_POST["description"];
 		$title = $_POST["title"];
 		$sql="INSERT INTO threads (threadsID, threadsDate, threadsDescription, threadsUserID, threadsTitle, threadsReplies) VALUES ('$id', '$now', '$description', '$cookie','$title','0')";
 		$mysqli = new MySQLi("localhost","root","root","jpegif");
 		if ($result = $mysqli->query($sql) === TRUE) {
-			echo "<br /> New record";
+			header("Refresh: 2; URL=thread.php?t=$id");
 		} else {
 			echo "Error: . $mysqli->error";
 		}

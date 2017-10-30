@@ -18,7 +18,7 @@ $thread = $_POST["thread"];
 $sql="INSERT INTO comments (commentsID, commentsThreadID, commentsUser, commentsDate, commentsContent) VALUES ('$id', '$thread', '$cookie', '$now','$comment')";
 $mysqli = new MySQLi("localhost","root","root","jpegif");
 if ($result = $mysqli->query($sql) === TRUE) {
-	echo "<br /> New record";
+	header("Location: thread.php?t=$thread");
 } else {
 	echo "Error: . $mysqli->error";
 }

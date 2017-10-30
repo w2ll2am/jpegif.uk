@@ -32,7 +32,7 @@
 <center><h1>Welcome!</h1>
 <p>Welcome to our image sharing site. Please make all ze threads</p></center>
 <?php 
-	$query = "SELECT threadsID FROM threads ORDER BY threadsDate DESC LIMIT 6";
+	$query = "SELECT threadsID FROM threads ORDER BY threadsDate DESC LIMIT 9";
 	$cardCount = 1;
 	$varname = 'thread';
 	if ($result = $mysqli->query($query)){
@@ -54,11 +54,17 @@
 
 
 <center>
-	<button onClick="togglePost()" class="loginButton">New Post</button>
+	<?php if(isset($cookie)) 
+		{
+			echo("<button onClick='togglePost()' class='loginButton'>New Thread</button>");
+		} 
+		else 
+		{
+			echo("<p>Login to make a post</p>");
+		}
+	?>
+	<div id='newPost'></div>
 </center>
-<div id="newPost">
-
-</div>
 <hr>
 <ul style="align: center;">
 	<li>Sort By:</li>
@@ -70,20 +76,24 @@
   <div class="row text-center">
     
     
-     <?php include('card.php'); ?>
-    
-    
-    
-     <?php include('card.php'); ?>
-    
-    
-    
-    
-    
+    <?php include('card.php'); ?>
+
+    <?php include('card.php'); ?>
+
     <?php include('card.php'); ?>
     
    
     
+  </div>
+  
+  <div class="row text-center hidden-xs">
+   
+    <?php include('card.php'); ?>
+    
+    <?php include('card.php'); ?>
+    
+    <?php include('card.php'); ?>
+   
   </div>
   
   <div class="row text-center hidden-xs">
@@ -116,6 +126,7 @@
 				text: "<iframe src='testthread.html'>"
 			},
 			style: {
+				
 				classes: 'qtip-bootstrap'
 			},
 			show: {

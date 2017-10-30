@@ -26,3 +26,9 @@ li a:hover {
 p {
     font-family: "Times New Roman", Times, serif;
 }
+#comments table{
+	border: solid 1px
+}
+#comments tr {
+	border: solid 1px
+}

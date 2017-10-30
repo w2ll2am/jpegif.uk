@@ -2,7 +2,9 @@
 <html>
 <head>
 <title>Login</title>
-<?php include("header.php"); ?>
+<?php include("header.php");
+
+	?>
 
 <script type="text/javascript">
 	var loginStr = `
@@ -17,6 +19,7 @@
 		<input class="loginButton" type="submit" value ="Log in" title="Log in"/>
 		<br/>
 		<input type="hidden" name="submissionType" value="login"	/>	
+			
 		</form>
 	`;
 	
@@ -30,6 +33,7 @@
 		<input class="loginButton" type="submit" value ="Register" title="Register" />
 		<br/>
 		<input type="hidden" name="submissionType" value="register"	/>
+			
 		</form>
 	`;
 	var count = 0
@@ -90,9 +94,10 @@
 			}
 			
 			if ($dbPass == $passwordHashed) {
-				echo("<script>alert('That was the right password.')</script>");
 				setCookie("IDCookie",$loginID);
+				echo($p);
 				header('Location: index.php');
+				
 			
 			}	else {
 				echo("<script>alert('That was the wrong password.')</script>");

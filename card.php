@@ -1,18 +1,25 @@
-     <div class="col-sm-4">
+<div class="col-sm-4">
     <?php 
 		 $threadID = ${"thread" . $cardCount};
 		 $cardCount += 1;
-		 $query = "SELECT threadsID, threadsDate, threadsDescription, threadsUserID, threadsTitle, threadsReplies FROM threads WHERE threadsID = '$threadID'";
+		 $query = "SELECT threadsID, threadsDate, threadsDescription, threadsUserID, threadsTitle FROM threads WHERE threadsID = '$threadID'";
 		if ($result = $mysqli->query($query)) {
 			while($row = $result->fetch_array()) {
 				$threadDate = $row['threadsDate'];
 				$threadDescription = $row['threadsDescription'];
 				$threadUser = $row['threadsUserID'];
 				$threadTitle = $row['threadsTitle'];
-				$replies = $row['threadsReplies'];
+				
 		}
+			$result->close();
 	} else {
 			echo("Did not connect");
+		}
+		$query = "SELECT commentsID FROM comments WHERE commentsThreadID = '$threadID'";
+		if ($result = $mysqli->query($query)) {
+			$row_cnt = $result->num_rows;
+			$replies = $row_cnt;
+			$result->close();
 		}
 		 if (@getimagesize("http://localhost/threads/$threadID/1.jpg")) 
 		 {
@@ -27,7 +34,8 @@
           <h3><?php echo($threadTitle) ?></h3>
           <p><?php echo($threadDescription) ?></p>
           <p>
-         	<div id="ViewComments" class="viewcomments"><a href="#">View Comments (<?php echo($replies) ?>)</a></div>
+         	<div id="ViewComments" class="viewcomments">
+         	<span style="color: #337AC7; cursor: pointer;">View Comments (<?php echo($replies) ?>)</span></div>
          	<div id="ViewThread" class="viewthread"><a target="_blank" href="thread.php?t=<?php echo($threadID) ?>">View Thread</a></div>
          	<div id="Date" class = "date"><?php echo($threadDate)?></div>
           </p>
