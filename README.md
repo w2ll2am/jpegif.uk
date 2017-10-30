@@ -1,5 +1,5 @@
 # jpegif.uk
-Image sharing website as a collaboration between the Booth-Clibborn and the Hill-Danial household 
+Image sharing website as a collaboration between the Booth-Clibborn and the Hill-Daniel household 
 
 REMEMBER:
 When you commit, dump the table you have to the folder in the root directory.
