@@ -11,3 +11,7 @@
 <script type-"text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.qtip.min.js"></script>
 <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+<?php
+if(!isset($_COOKIE["sortMode"])) {
+	setcookie("sortMode", "date", time() + (86400 * 60), "/"); // 86400 = 1 day
+}

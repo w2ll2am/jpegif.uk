@@ -32,7 +32,14 @@
 <center><h1>Welcome!</h1>
 <p>Welcome to our image sharing site. Please make all ze threads</p></center>
 <?php 
-	$query = "SELECT threadsID FROM threads ORDER BY threadsDate DESC LIMIT 9";
+	if(($_COOKIE["sortMode"]) == "date") {
+		$query = "SELECT threadsID FROM threads ORDER BY threadsDate DESC LIMIT 9";
+	} else if ($_COOKIE["sortMode"] == "replies") {
+		$query = "SELECT threadsID FROM threads ORDER BY threadsReplies DESC LIMIT 9";
+	} else {
+		$query = "SELECT threadsID FROM threads ORDER BY threadsDate DESC LIMIT 9";
+	}
+	
 	$cardCount = 1;
 	$varname = 'thread';
 	if ($result = $mysqli->query($query)){
@@ -68,8 +75,8 @@
 <hr>
 <ul style="align: center;">
 	<li>Sort By:</li>
-	<li><a class="text-center">Most Replies</a></li>
-	<li><a class="text-center">Most Recent</a></li>
+	<li><a href="resort.php?mode=replies"  class="text-center">Most Replies</a></li>
+	<li><a href="resort.php?mode=date"  class="text-center">Most Recent</a></li>
 </ul>
 <div class="container">
  
